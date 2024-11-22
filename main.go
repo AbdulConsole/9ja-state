@@ -1,50 +1,28 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
-)
+	"log"
+	"9ja-state/handlers"
+	"9ja-state/routes"
 
-var data Data
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	// Load data
-	data = LoadData("data.json")
+	if err := handlers.LoadData(); err != nil {
+		log.Fatalf("Failed to load data: %v", err)
+	}
 
 	// Initialize Gin router
 	router := gin.Default()
 
-	// Define routes
-	router.GET("/states", getStates)
-	router.GET("/states/:state/local-governments", getLocalGovernments)
+	// Register versioned routes
+	routes.RegisterV1Routes(router)
 
-	// Run server
-	router.Run(":8080")
-}
-
-func getStates(c *gin.Context) {
-	// Extract states for Nigeria
-	states := []string{}
-	for state := range data.Countries["Nigeria"] {
-		states = append(states, state)
+	// Start the server
+	log.Println("Server is running on http://localhost:8080")
+	if err := router.Run(":8080"); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
 	}
-
-	c.JSON(http.StatusOK, gin.H{
-		"states": states,
-	})
-}
-
-func getLocalGovernments(c *gin.Context) {
-	state := c.Param("state")
-	lgas, exists := data.Countries["Nigeria"][state]
-
-	if !exists {
-		c.JSON(http.StatusNotFound, gin.H{"error": "State not found"})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{
-		"state":            state,
-		"local_governments": lgas,
-	})
 }
