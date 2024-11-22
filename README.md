@@ -1,3 +1,5 @@
+After serving its purpose, I have decided to publish this and made it more accessible.
+
 # 9ja-State API
 
 The 9ja-State API is a lightweight RESTful API built using Golang and the Gin framework. It provides endpoints to access information about Nigeria's 36 states and their respective Local Government Areas (LGAs). This project is designed to make it easy for developers to integrate state and LGA data into their applications.
