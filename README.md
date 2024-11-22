@@ -134,8 +134,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Author
 
-Developed by [Abdul Console], a passionate software engineer with expertise in Golang and cybersecurity.
+Developed by [Abdul Console](https://abdulconsole.com.ng), a passionate software engineer with expertise in Golang and cybersecurity.
 
-GitHub: Your GitHub Profile
+GitHub: [@AbdulConsole](https://github.com/AbdulConsole)
 
-Twitter: @abdulconsole
+Twitter: [@abdulconsole](https://x.com/AbdulConsole)
