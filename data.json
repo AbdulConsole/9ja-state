@@ -1,0 +1,7 @@
+{
+  "Nigeria": {
+    "Lagos": ["Ikeja", "Surulere", "Epe", "Badagry"],
+    "Kano": ["Nassarawa", "Tarauni", "Gwale"],
+    "Abuja": ["Gwagwalada", "Kuje", "Abaji", "Bwari"]
+  }
+}
